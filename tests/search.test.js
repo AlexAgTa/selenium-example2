@@ -9,15 +9,20 @@ describe('Pruebas de regresión de búsqueda', function() {
 
     // Antes de cada prueba, inicializa el navegador
     beforeEach(async function() {
+        // Nota: Añadir 'this.driver = driver' es una práctica común para acceder al driver
+        // en hooks como afterEach si fallara la inicialización, pero con tu estructura está bien.
         driver = await new Builder().forBrowser('chrome').build();
     });
 
     // Después de cada prueba, cierra el navegador
     afterEach(async function() {
-        await driver.quit();
+        // Se recomienda una comprobación de seguridad para evitar errores si el driver nunca se inicializó
+        if (driver) {
+            await driver.quit();
+        }
     });
 
-    // Caso de prueba específico
+    // Caso de prueba POSITIVO (Original)
     it('Debería buscar "Selenium" y mostrar resultados correctos', async function() {
         try {
             // 1. Navegar a la página web (Google)
@@ -37,8 +42,9 @@ describe('Pruebas de regresión de búsqueda', function() {
             expect(pageTitle).to.include('Selenium');
 
         } catch (error) {
-            console.error('Error durante la ejecución del test:', error);
+            console.error('Error durante la ejecución del test POSITIVO:', error);
             throw error; // Propagar el error para que la prueba falle
         }
     });
+
 });

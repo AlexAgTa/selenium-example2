@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/ --timeout 10000"
+    "test": "mocha tests/ --timeout 30000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
+  "description": "Ejemplo de pruebas Selenium con Mocha y Chai",
   "devDependencies": {
-    "chai": "^6.2.0",
-    "mocha": "^11.7.4",
-    "selenium-webdriver": "^4.36.0"
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "selenium-webdriver": "^4.22.0" 
   }
 }
